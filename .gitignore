@@ -25,8 +25,5 @@ Thumbs.db
 # Archivos de configuración de Firebase (si los tienes localmente)
 /src/firebase-config.js
 
-# Archivos de compilación de Tailwind CSS
-/src/styles.css
-
 # Archivos generados por Vite
 *.local
