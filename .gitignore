@@ -22,8 +22,5 @@ Thumbs.db
 *.swp
 *.swo
 
-# Archivos de configuración de Firebase (si los tienes localmente)
-/src/firebase-config.js
-
 # Archivos generados por Vite
 *.local
