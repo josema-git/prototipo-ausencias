@@ -338,17 +338,12 @@ async function loadDashboard() {
                 <h2 class="text-2xl font-semibold mb-4">Ausencias del Equipo</h2>
                 <canvas id="teamAbsenceChart" width="400" height="200"></canvas>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h2 class="text-2xl font-semibold mb-4">Ausencias a lo largo del tiempo</h2>
-                <canvas id="absenceOverTimeChart" width="400" height="200"></canvas>
-            </div>
         </div>
     `;
 
   await loadAbsenceSummary();
   await createMyAbsenceChart();
   await createTeamAbsenceChart();
-  await createAbsenceOverTimeChart();
 }
 
 function setupDatePickers() {
@@ -422,33 +417,6 @@ async function handleAbsenceRequest(e) {
         console.error("Error al crear la solicitud de ausencia: ", error);
         alert('Error al enviar la solicitud de ausencia');
     }
-}
-
-// Función para crear un nuevo gráfico de líneas
-function createAbsenceOverTimeChart(data) {
-  const ctx = document.getElementById("absenceOverTimeChart").getContext("2d");
-  new Chart(ctx, {
-    type: "line",
-    data: {
-      labels: data.labels,
-      datasets: [
-        {
-          label: "Ausencias a lo largo del tiempo",
-          data: data.values,
-          borderColor: "rgb(75, 192, 192)",
-          tension: 0.1,
-        },
-      ],
-    },
-    options: {
-      responsive: true,
-      scales: {
-        y: {
-          beginAtZero: true,
-        },
-      },
-    },
-  });
 }
 
 async function loadAbsenceSummary() {
